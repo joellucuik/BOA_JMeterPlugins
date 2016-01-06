@@ -41,10 +41,10 @@ public class MySQLResultsSaver extends ResultCollector implements Runnable, Test
         	Connection conn = (Connection) DataSourceElement.getConnection("jdbcConfig");
         	
         	String threadName = event.getResult().getThreadName();
-        	String runAndThread = threadName.split(" ")[2]; //"Thread Group 1-2"
-        	String[] runAndThreadArray = runAndThread.split("-");
-        	String run = runAndThreadArray[0];
-        	String thread = runAndThreadArray[1];
+        	String iterationAndThread = threadName.split(" ")[2]; //"Thread Group 1-2"
+        	String[] iterationAndThreadArray = iterationAndThread.split("-");
+        	String iteration = iterationAndThreadArray[0];
+        	String thread = iterationAndThreadArray[1];
         	Statement sqlStatement = conn.createStatement();
         	sqlStatement.execute(
     			String.format(
@@ -70,7 +70,7 @@ public class MySQLResultsSaver extends ResultCollector implements Runnable, Test
 	            	"Iteration)" +
 	            	"VALUES (%s, %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
 	            	"\"" + thread + "\"", /*Thread*/
-	            	run, //RUN event.getResult().
+	            	1, //RUN event.getResult().
 	            	"0", 
 	            	event.getResult().getStartTime(), //"FROM_UNIXTIME(stattimeepoc / 1000)"
 	            	event.getResult().getTime(),
@@ -87,7 +87,7 @@ public class MySQLResultsSaver extends ResultCollector implements Runnable, Test
 	            	"0", //<{TestBedID: }>,
 	            	"0", //<{TestRunID: }>,
 	            	"0", //<{LoadTypeID: }>,
-	            	event.getResult().getSampleCount())); //<{Iteration); 
+	            	iteration)); //<{Iteration); 
 	            	// 1)); //<{Iteration);
 
         	
