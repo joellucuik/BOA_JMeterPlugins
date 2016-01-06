@@ -1,0 +1,16 @@
+/jmeter.log
+/bundle/
+/target/
+/*/target/
+nbactions.xml
+dependency-reduced-pom.xml
+.idea/
+*.iml
+.directory
+eg_globals.xml
+*~
+.classpath
+.project
+.settings/
+upload
+*.class
