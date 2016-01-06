@@ -1,20 +1,14 @@
 package com.boa.jmeter.reporters;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.concurrent.BlockingQueue;
-
 import org.apache.jmeter.protocol.jdbc.config.DataSourceElement;
 import org.apache.jmeter.reporters.ResultCollector;
 import org.apache.jmeter.samplers.SampleEvent;
 import org.apache.jmeter.testelement.TestStateListener;
-import org.apache.jmeter.util.JMeterUtils;
 import org.apache.jorphan.logging.LoggingManager;
 import org.apache.log.Logger;
-
-import com.mysql.jdbc.Driver;
 
 public class MySQLResultsSaver extends ResultCollector implements Runnable, TestStateListener {
 
