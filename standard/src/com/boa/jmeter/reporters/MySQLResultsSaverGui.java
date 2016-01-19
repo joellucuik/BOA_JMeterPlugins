@@ -28,6 +28,7 @@ import java.awt.Component;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import org.apache.jmeter.samplers.gui.AbstractSamplerGui;
 import org.apache.jmeter.testelement.TestElement;
@@ -91,7 +92,7 @@ public class MySQLResultsSaverGui extends AbstractSamplerGui {
         // Standard setup
         setLayout(new BorderLayout(0, 5));
         setBorder(makeBorder());
-        add(makeTitlePanel(), BorderLayout.NORTH); // Add the standard title
+        //add(makeTitlePanel(), BorderLayout.NORTH); // Add the standard title
 
         // Specific setup
         add(createDataPanel(), BorderLayout.CENTER);
@@ -103,15 +104,18 @@ public class MySQLResultsSaverGui extends AbstractSamplerGui {
      * @return the panel for entering the data
      */
     private Component createDataPanel() {
-        JLabel label = new JLabel(JMeterUtils.getResString("Foo_Data")); //"example_data")); //$NON-NLS-1$
+        //JLabel label = new JLabel(JMeterUtils.getResString("Foo_Data")); //"example_data")); //$NON-NLS-1$
 
-        data = new JTextArea();
-        data.setName(MySQLResultsSaver.DATA);
-        label.setLabelFor(data);
+        //data = new JTextArea();
+        //data.setName(MySQLResultsSaver.DATA);
+        //label.setLabelFor(data);
+        JLabel iterationLabel = new JLabel("Iteration");
+        JTextField iterationField = new JTextField(5);
 
         JPanel dataPanel = new JPanel(new BorderLayout(5, 0));
-        dataPanel.add(label, BorderLayout.WEST);
-        dataPanel.add(data, BorderLayout.CENTER);
+        dataPanel.add(iterationLabel, BorderLayout.WEST);
+        dataPanel.add(iterationField);
+        //dataPanel.add(data, BorderLayout.CENTER);
 
         return dataPanel;
     }
